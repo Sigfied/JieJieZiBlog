@@ -1,6 +1,6 @@
 # Flink
 
-Created by: Guo YuJie
+Created by: Jie Jie Zi
 Created time: October 29, 2023 1:59 PM
 Tags:  Document
 
@@ -10,11 +10,11 @@ Tags:  Document
 
 数据流描述了数据如何在算子程序之间的流动，通常为**有向图**，其中节点称为算子，用来表示计算，边表示数据之间的依赖性。算子是数据流程序的基本功能单元。
 
-![Untitled](Untitled.png)
+![Untitled](flink01.png)
 
 上图的数据流图称为逻辑流图，表示了计算逻辑的高级流图。为了执行一个数据流程序，Flink 会将逻辑流图转换为物理数据流图，详细说明程序的执行方式。
 
-![Untitled](Untitled%201.png)
+![Untitled](flink02.png)
 
 如果使用分布式处理引擎，每个算子在不同的物理机器上可能有几个并行的任务运行。
 
@@ -24,7 +24,7 @@ Tags:  Document
 
 数据交换策略定义了物理数据流图中如何将数据分配给任务。
 
-![Untitled](Untitled%202.png)
+![Untitled](flink03.png)
 
 - 前向策略将数据从一个任务发送到接收任务。如果两个任务都位于同一台物理计算机上（这通常由任务调度器确保），这种交换策略可以避免网络通信。
 - 广播策略将所有数据发送到算子的所有的并行任务上面去。因为这种策略会复制数据和涉及网络通信，所以代价相当昂贵。

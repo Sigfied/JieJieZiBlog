@@ -3,16 +3,19 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="in"
-                  name="Instance Name" start-page="Click House.md">
+                  name="Blog of JieJie Zi" start-page="Click House.md">
 
-    <toc-element topic="Hive.md"/>
-    <toc-element topic="时间轮.md"/>
-    <toc-element topic="Kafka.md"/>
-    <toc-element topic="MySQL.md"/>
-    <toc-element topic="Flume.md"/>
-    <toc-element topic="分布式锁实现.md"/>
-    <toc-element topic="Zookeeper.md"/>
-    <toc-element topic="Flink.md"/>
-    <toc-element topic="Click House.md"/>
-    <toc-element topic="HDFS.md"/>
+    <toc-element topic="bigdata.md">
+        <toc-element topic="时间轮.md"/>
+        <toc-element topic="Kafka.md"/>
+        <toc-element topic="MySQL.md"/>
+        <toc-element topic="Flume.md"/>
+        <toc-element topic="分布式锁实现.md"/>
+        <toc-element topic="Zookeeper.md"/>
+        <toc-element topic="Flink.md"/>
+        <toc-element topic="Click House.md"/>
+        <toc-element topic="HDFS.md"/>
+        <toc-element topic="Hive.md"/>
+    </toc-element>
+
 </instance-profile>

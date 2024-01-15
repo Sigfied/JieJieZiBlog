@@ -1,11 +1,11 @@
 # HDFS
 
-Created by: Guo YuJie
+Created by: Jie Jie Zi
 Created time: October 24, 2023 8:39 PM
 
 ## 特点
 
-### HDFS特点
+### HDFS特点 {id="hdfs_1"}
 
 1. 高容错性、可构建在廉价机器上
 2. 适合批处理
@@ -28,20 +28,20 @@ Master 节点
 ### **1. 请说下HDFS读写流程**
 
 > 这个问题虽然见过无数次，面试官问过无数次，但是就是有人不能完整的说下来，所以请务必记住。并且很多问题都是从HDFS读写流程中引申出来的
-> 
+>
 
-> HDFS 来源于 Google File System
-> 
+> 首先 HDFS 来源于 《Google File System》
 
-![Untitled](HDFS%204e6bddcf44f94a40941c16296bd0792b_Untitled.png)
 
-![Untitled](HDFS%204e6bddcf44f94a40941c16296bd0792b_Untitled%201.png)
+![Untitled](hdfs01.png)
+
+![Untitled](hdfs02.png)
 
 *HDFS写流程*
 
-1）client客户端发送上传请求，通过RPC与namenode建立通信，namenode检查该用户是否有上传权限，以及上传的文件是否在hdfs对应的目录下重名，如果这两者有任意一个不满足，则直接报错，如果两者都满足，则返回给客户端一个可以上传的信息
+1）client客户端发送上传请求，通过RPC与name node建立通信，name node检查该用户是否有上传权限，以及上传的文件是否在hdfs对应的目录下重名，如果这两者有任意一个不满足，则直接报错，如果两者都满足，则返回给客户端一个可以上传的信息
 
-2）client根据文件的大小进行切分，默认128M一块，切分完成之后给namenode发送请求第一个block块上传到哪些服务器上
+2）client根据文件的大小进行切分，默认128M一块，切分完成之后给name node发送请求第一个block块上传到哪些服务器上
 
 3）namenode收到请求之后，根据网络拓扑和机架感知以及副本机制进行文件分配，返回可用的DataNode的地址
 
@@ -53,13 +53,13 @@ Master 节点
 
 6）数据被分割成一个个的packet数据包在pipeline上依次传输，在pipeline反向传输中，逐个发送ack（命令正确应答），最终由pipeline 中第一个 DataNode 节点 A 将 pipelineack 发送给 Client
 
-7）当一个 block 传输完成之后, Client 再次请求 NameNode 上传第二个 block ，namenode重新选择三台DataNode给client
+7）当一个 block 传输完成之后, Client 再次请求 NameNode 上传第二个 block ，name node重新选择三台DataNode给client
 
 *HDFS读流程*
 
-1）client向namenode发送RPC请求。请求文件block的位置
+1）client向name node发送RPC请求。请求文件block的位置
 
-2）namenode收到请求之后会检查用户权限以及是否有这个文件，如果都符合，则会视情况返回部分或全部的block列表，对于每个block，NameNode 都会返回含有该 block 副本的 DataNode 地址； 这些返回的 DN 地址，会按照集群拓扑结构得出 DataNode 与客户端的距离，然后进行排序，排序两个规则：网络拓扑结构中距离 Client 近的排靠前；心跳机制中超时汇报的 DN 状态为 STALE，这样的排靠后
+2）name node收到请求之后会检查用户权限以及是否有这个文件，如果都符合，则会视情况返回部分或全部的block列表，对于每个block，NameNode 都会返回含有该 block 副本的 DataNode 地址； 这些返回的 DN 地址，会按照集群拓扑结构得出 DataNode 与客户端的距离，然后进行排序，排序两个规则：网络拓扑结构中距离 Client 近的排靠前；心跳机制中超时汇报的 DN 状态为 STALE，这样的排靠后
 
 3）Client 选取排序靠前的 DataNode 来读取 block，如果客户端本身就是DataNode,那么将从本地直接获取数据(短路读取特性)
 

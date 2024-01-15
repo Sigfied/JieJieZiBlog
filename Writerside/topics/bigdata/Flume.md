@@ -1,6 +1,6 @@
 # Flume
 
-Created by: Guo YuJie
+Created by: Jie Jie Zi
 Created time: December 14, 2023 10:43 AM
 Tags:  Document
 
@@ -8,7 +8,7 @@ Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量�
 
 ## 组成架构
 
-![Untitled](Flume%20fffcfaf07668420187241e12c1f424de_Untitled.png)
+![Untitled](flume01.png)
 
 1.  **Agent**是一个JVM进程，它以事件的形式将数据从源头送至目的，是Flume数据传输的基本单元。Agent主要有3个部分组成，Source、Channel、Sink。
 2. **Source**是负责接收数据到Flume Agent的组件。Source组件可以处理各种类型、各种格式的日志数据，包括avro、thrift、exec、jms、spooling directory、netcat、sequence generator、syslog、http、legacy。

@@ -1,15 +1,15 @@
 # MySQL
 
-Created by: Guo YuJie
+Created by: Jie Jie Zi
 Created time: October 28, 2023 12:31 PM
 Tags:  Document
 
-/opt/homebrew/opt/mysql/bin/mysqld_safe --datadir\=/opt/homebrew/var/mysql
 
 # 👀 一条语句的执行过程
 
-> update t set b = 200 where id = 2
-> 
+```SQL
+ update t set b = 200 where id = 2 
+```
 1. 客户端 发出 **更新语句，**并向 MySQL 服务端建立连接
 2. MySQL 连接器负责与客户端建立连接，获取权限，位置和管理连接
 3. MySQL 服务端拿到一个查询请求，会先到查询缓存中查看，是否有缓存（8.0版本之后废弃了查询缓存），如果执行过这个缓存，则会**将执行语句与查询结果以K-V形式存在内存**中，直接返回结果。如果没有查询到缓存，则会开始执行语句，分析器会先做词法分析，识别出关键字和表名，再做语法分析，判断输入语句是否合法。
@@ -27,8 +27,7 @@ Tags:  Document
 12. 事务的两阶段提交：commit的prepare阶段：引擎把刚刚写入的redo log刷盘；
 13. 事务的两阶段提交：commit的commit阶段：引擎binlog刷盘。
 
-![Untitled](MySQL%209f9b1877c5204079bcee93ab197a7a4b_Untitled.png)
+![Untitled](mysql01.png)
 
 ---
 
-# ****

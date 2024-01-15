@@ -9,4 +9,10 @@
         </variables>
     </build-profile>
 
+    <footer>
+        <social type="twitter" href="https://twitter.com/onwriterside"/>
+        <social type="bilibili" href="https://space.bilibili.com/282201708?spm_id_from=333.1007.0.0"/>
+        <social type="email" href="ayayating1031@gmail.com"/>
+    </footer>
+
 </buildprofiles>
