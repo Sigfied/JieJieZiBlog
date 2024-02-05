@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="in"
-                  name="Blog of JieJie Zi" start-page="Click House.md">
+                  name="Blog of Jie Jie Zi" start-page="interview.md">
 
     <toc-element topic="bigdata.md">
         <toc-element topic="时间轮.md"/>
@@ -12,10 +12,19 @@
         <toc-element topic="Flume.md"/>
         <toc-element topic="分布式锁实现.md"/>
         <toc-element topic="Zookeeper.md"/>
-        <toc-element topic="Flink.md"/>
+        <toc-element topic="Flink.md">
+            <toc-element topic="Kafka-2-Flink-2-Doris.md"/>
+        </toc-element>
         <toc-element topic="Click House.md"/>
         <toc-element topic="HDFS.md"/>
         <toc-element topic="Hive.md"/>
+    </toc-element>
+    <toc-element topic="bigdata-practice.md">
+        <toc-element topic="Doris.md"/>
+    </toc-element>
+
+    <toc-element topic="interview.md">
+        <toc-element topic="kingsoft-Golang.md"/>
     </toc-element>
 
 </instance-profile>
